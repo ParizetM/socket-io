@@ -1,0 +1,26 @@
+sequenceDiagram
+    autonumber
+    participant C as Client TLS
+    participant S as Serveur TLS
+
+    Note over C,S: Handshake TLS 1.2 — RFC 5246
+
+    C->>S: ClientHello (versions, suites, random R_c)
+    S-->>C: ServerHello (version choisie, suite choisie, random R_s)
+    S-->>C: Certificate (chaîne X.509)
+    S-->>C: ServerKeyExchange (paramètres ECDHE + signature)
+    S-->>C: ServerHelloDone
+
+    Note left of C: vérification du certificat<br/>(CA, validité, CN/SAN)
+    Note left of C: calcul du pre-master secret<br/>puis du master secret
+
+    C->>S: ClientKeyExchange (clé publique ECDHE)
+    C->>S: ChangeCipherSpec
+    C->>S: Finished (chiffré)
+
+    Note right of S: dérivation du master secret<br/>côté serveur
+
+    S-->>C: ChangeCipherSpec
+    S-->>C: Finished (chiffré)
+
+    Note over C,S: Canal applicatif chiffré (HTTPS, WSS, ...)
