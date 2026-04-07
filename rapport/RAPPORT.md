@@ -147,18 +147,3 @@ make                                  # compile les 3 programmes
 
 ---
 
-## Récap des contraintes
-
-| # | Contrainte | Livrable |
-|---|---|---|
-| 1 | Serveur WebSocket | [../index.js](../index.js) |
-| 2 | Tutoriel | §1 |
-| 3 | Wireshark | §2 + `captures/` |
-| 4 | Burp Suite | §3 + `captures/` |
-| 5 | Scanner de ports | [port_scanner.cpp](code/port_scanner.cpp) |
-| 6 | Bas niveau (scanner) | C++17 + sockets POSIX |
-| 7 | Simu TCP | [tcp_handshake.cpp](code/tcp_handshake.cpp) |
-| 8 | Bas niveau (TCP) | C++17 |
-| 9 | UML TCP | [tcp_handshake.mmd](diagrams/tcp_handshake.mmd) |
-| 10 | Simu TLS | [tls_handshake.cpp](code/tls_handshake.cpp) |
-| 11 | Bas niveau TLS + UML TLS | C++17 + [tls_handshake.mmd](diagrams/tls_handshake.mmd) |
